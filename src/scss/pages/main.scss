@@ -1,0 +1,95 @@
+@import "variables";
+.P-main {
+    width: 100%;
+    .P-main-wrapper {
+        width: 80%;
+        @include screen-max-width-1600 {
+            width: 100%;
+        }
+
+        .P-main-block {
+            width: 360px;
+            margin: $size-24;
+
+            @include screen-max-width-991 {
+                width: 300px;
+                margin: $size-10;
+            }
+            @include screen-max-width-767 {
+                width: 250px;
+            }
+            @include screen-max-width-576 {
+                width: 200px;
+            }
+            @include screen-max-width-460 {
+                width: 100%;
+                margin: $size-16 $size-10;
+                .P-main-background,
+                img {
+                    width: 100%;
+                }
+            }
+
+            .P-main-life-text {
+                color: $red;
+                font-weight: 700;
+                margin: $size-16 0;
+                @include screen-max-width-576 {
+                    font-size: $size-12;
+                    margin: $size-10 0;
+                }
+            }
+            .P-main-block-title {
+                color: $black;
+                font-weight: 700;
+                font-size: $size-24;
+                margin-bottom: $size-16;
+                @include screen-max-width-767 {
+                    font-size: $size-20;
+                }
+                @include screen-max-width-576 {
+                    font-size: $size-16;
+                }
+                @include screen-max-width-460 {
+                    font-size: $size-24;
+                }
+            }
+            .P-main-block-info {
+                display: flex;
+                list-style: disc;
+                .P-main-block-info-list {
+                    margin-right: $size-20;
+                    font-size: $size-12;
+                    color: $grey_base;
+                    font-weight: 500;
+                    @include screen-max-width-576 {
+                        margin-right: $size-16;
+                        font-size: $size-10;
+                    }
+                    @include screen-max-width-460 {
+                        font-size: $size-12;
+                        margin-right: $size-20;
+                    }
+                    &:first-child {
+                        color: $black;
+                        list-style: none;
+                    }
+                }
+            }
+            .P-main-block-desc {
+                color: $grey_base;
+                margin-top: $size-16;
+                line-height: 20px;
+                @include screen-max-width-767 {
+                    font-size: $size-14;
+                }
+                @include screen-max-width-576 {
+                    font-size: $size-12;
+                }
+                @include screen-max-width-460 {
+                    font-size: $size-16;
+                }
+            }
+        }
+    }
+}

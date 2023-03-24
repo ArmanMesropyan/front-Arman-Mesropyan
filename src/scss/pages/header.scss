@@ -1,0 +1,103 @@
+@import "variables";
+@import "mixin";
+
+.P-header {
+    width: 100%;
+
+    .P-header-logo-parent {
+        padding-top: $size-28;
+        width: 60%;
+        margin: 0 auto;
+        @include screen-max-width-460 {
+            width: 90%;
+        }
+    }
+    .P-header-logo-wrapper {
+        width: 100%;
+        .P-header-logo-wrapper-child {
+            &:first-child {
+                visibility: hidden;
+                @include screen-max-width-460 {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+.P-header-menu-lists-wrapper {
+    position: sticky;
+    top: 0;
+    background-color: $base_color;
+    width: 100%;
+    margin-top: $size-24;
+    border-top: 1px solid $border_color;
+    border-bottom: 1px solid $border_color;
+
+    opacity: 1;
+    transition: 0.5s all;
+    @include screen-max-width-460 {
+        display: none;
+    }
+    .P-header-menu-lists {
+        width: 100%;
+        .P-header-menu-list {
+            margin: 0 16px;
+            padding: 15px 0;
+            font-size: $size-16;
+
+            @include screen-max-width-767 {
+                margin: 0 7px;
+                font-size: $size-14;
+            }
+            @include screen-max-width-576 {
+                margin: 0 5px;
+                font-size: $size-12;
+            }
+            cursor: pointer;
+            .P-header-list-pre-lists {
+                display: none;
+            }
+            &:hover {
+                position: relative;
+                .P-header-list-pre-lists {
+                    display: block;
+                    position: absolute;
+                    top: 100%;
+                    left: -90%;
+                    width: 176px;
+                    height: 173px;
+                    background-color: $white;
+                    padding: 10px 20px;
+                    @include screen-max-width-767 {
+                        left: -30%;
+                        padding: 5px 10px;
+                        width: 120px;
+                        height: 160px;
+                    }
+                    .P-header-list-pre-list {
+                        padding: 8px 0;
+                        border-bottom: 1px solid $border_color;
+                        align-items: center;
+                        font-size: $size-12;
+                        display: flex;
+                        justify-content: space-between;
+                        .P-header-list-pre-list-text {
+                            transition: $transition;
+                            &:hover {
+                                color: $grey_base;
+                                transform: translateX(6px);
+                            }
+                        }
+
+                        &:last-child {
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.menu-hidden {
+    opacity: 0;
+}

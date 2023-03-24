@@ -1,0 +1,39 @@
+@import "variables";
+@import "mixin";
+@import "fonts";
+
+.G-pointer {
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 20px;
+}
+
+.G-hidden {
+    overflow: hidden;
+}
+
+.G-container {
+    max-width: 1920px;
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+    @include screen-max-width-1200 {
+        padding: 0 1rem;
+    }
+    @include screen-max-width-767 {
+        padding: 0 0.5rem;
+    }
+    @include screen-max-width-576 {
+        padding: 0 0.25rem;
+    }
+}

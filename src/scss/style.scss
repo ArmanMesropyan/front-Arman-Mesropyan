@@ -1,0 +1,12 @@
+@import "global";
+@import "flex";
+@import "normalize";
+@import "variables";
+@import "mixin";
+@import "fonts";
+
+//pages
+@import "pages/header.scss";
+@import "pages/main.scss";
+@import "pages/modal.scss";
+@import "pages/hero.scss";

@@ -1,0 +1,183 @@
+@import "variables";
+@import "mixin";
+
+.P-hero-section {
+    margin: 2rem 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    @include screen-max-width-991 {
+        display: none;
+    }
+    .P-hero-background {
+        position: relative;
+        width: 595px;
+        height: 635px;
+        background-image: url("../../assets/img/hero.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: $size-48;
+        overflow: hidden;
+        cursor: pointer;
+        .P-hero-paragraph {
+            p {
+                color: $white;
+                padding-bottom: $size-20;
+                font-family: "DM sans";
+                font-size: $size-10;
+                text-transform: uppercase;
+                transition: transform $transition;
+            }
+            overflow-y: hidden;
+        }
+        .P-hero-title {
+            p {
+                font-family: "steppitcstd";
+                font-weight: 600;
+                min-width: 350px;
+                max-width: 430px;
+                color: $white;
+                font-weight: 700;
+                font-size: 55px;
+                text-align: center;
+                transition: transform 0.5s;
+            }
+            overflow-y: hidden;
+        }
+        &:hover {
+            .P-hero-paragraph p,
+            .P-hero-title p {
+                transform: translateY(150%);
+            }
+            .P-hero-overlay {
+                &::before {
+                    top: 0;
+                }
+
+                .P-hero-overlay-title p,
+                .P-hero-overlay-paragraph p {
+                    animation: translate 1s forwards alternate 0.8s;
+                }
+                .P-hero-overlay-image,
+                .P-hero-overlay-description,
+                .P-hero-overlay-button {
+                    animation: opacity 1s forwards alternate 0.8s;
+                }
+            }
+        }
+        .P-hero-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            .P-hero-overlay-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+            &::before {
+                background-color: $hero_color;
+                opacity: 0;
+                content: "";
+                position: absolute;
+                top: 120%;
+                width: 100%;
+                left: 0;
+                height: 120%;
+                margin: 0 auto;
+                transition: all 1s;
+                animation: move 1.3s forwards alternate 0.4s;
+            }
+            .P-hero-overlay-paragraph {
+                p {
+                    color: $hero_text_two;
+                    padding-bottom: $size-20;
+                    font-family: "DM sans";
+                    font-size: $size-10;
+                    text-transform: uppercase;
+                    transition: transform 1.5s;
+                    transform: translateY(150%);
+                }
+                overflow: hidden;
+            }
+            .P-hero-overlay-title {
+                p {
+                    margin-top: $size-16;
+                    font-size: 55px;
+                    font-family: "steppitcstd";
+                    min-width: 407px;
+                    max-width: 550px;
+                    color: $hero_text_two;
+                    font-weight: 700;
+                    text-align: center;
+                    transition: transform 1.5s;
+                    transform: translateY(150%);
+                }
+                overflow: hidden;
+            }
+            .P-hero-overlay-image {
+                padding: $size-40 0;
+                opacity: 0;
+                transition: opacity 1.5s;
+            }
+            .P-hero-overlay-description {
+                color: $hero_text;
+                line-height: 27px;
+                font-size: $size-18;
+                font-family: "DM sans";
+                max-width: 440px;
+                text-align: center;
+                opacity: 0;
+                transition: opacity 1.5s;
+            }
+            .P-hero-overlay-button {
+                cursor: pointer;
+                align-items: center;
+                opacity: 0;
+                P {
+                    padding: $size-16 0 5px 0;
+                    border-bottom: 1px solid $hero_text_two;
+                    transition: all 0.3s;
+                    &:hover {
+                        transform: translateX(-10px);
+                    }
+                }
+
+                &:hover span {
+                    opacity: 1;
+                }
+            }
+            span {
+                opacity: 0;
+                transition: 0.5s;
+                margin-top: 10px;
+                img {
+                    width: 10px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes move {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes opacity {
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes translate {
+    100% {
+        transform: translateY(0);
+    }
+}
